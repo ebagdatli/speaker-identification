@@ -14,10 +14,13 @@ class SpeakerIdentifier:
         self.speakers = {}
         
         if os.path.exists(model_path):
-            self.model.load_state_dict(torch.load(model_path, map_location=self.device))
-            self.model.eval()
+            try:
+                self.model.load_state_dict(torch.load(model_path, map_location=self.device))
+                self.model.eval()
+            except Exception as e:
+                print(f"Error loading model: {e}")
         else:
-            print(f"Warning: Model not found at {model_path}. Using random weights.")
+            print(f"Warning: Model not found at {model_path}")
             
         self.load_embeddings()
 
@@ -25,31 +28,60 @@ class SpeakerIdentifier:
         if os.path.exists(self.embeddings_path):
             with open(self.embeddings_path, 'r') as f:
                 data = json.load(f)
-                # Convert list back to tensor
                 self.speakers = {k: torch.tensor(v).to(self.device) for k, v in data.items()}
 
     def save_embeddings(self):
-        # Convert tensors to list for JSON serialization
         data = {k: v.cpu().tolist() for k, v in self.speakers.items()}
+        # Create dir if not exists
+        os.makedirs(os.path.dirname(self.embeddings_path), exist_ok=True)
         with open(self.embeddings_path, 'w') as f:
             json.dump(data, f)
 
-    def compute_embedding(self, audio_path):
-        # Load audio (can refer to preprocessing.load_audio_chunk but better to take full audio or average chunks)
-        # For simplicity, let's take the first 1 second or pad
+    def compute_embedding(self, audio_path, duration=1.0):
         try:
-            y, sr = librosa.load(audio_path, sr=8000, duration=1.0) # Using 1s for consistency with training
-            target_len = int(1.0 * 8000)
-            if len(y) < target_len:
-                y = np.pad(y, (0, target_len - len(y)))
-            y = y[:target_len]
+            # We can average multiple chunks for better robustness
+            y_full, sr = librosa.load(audio_path, sr=8000)
             
-            spec = extract_mel_spectrogram(y, sr=8000)
-            tensor = torch.from_numpy(spec).unsqueeze(0).unsqueeze(0).to(self.device) # (1, 1, 256, 32)
+            # Create sliding windows of 1 sec
+            chunk_len = int(duration * 8000)
+            embeddings = []
             
-            with torch.no_grad():
-                embedding = self.model(tensor)
-            return embedding.squeeze(0) # (256,)
+            # If shorter than 1 sec, pad
+            if len(y_full) < chunk_len:
+                y = np.pad(y_full, (0, chunk_len - len(y_full)))
+                y = y[:chunk_len]
+                spec = extract_mel_spectrogram(y, sr=sr)
+                t = torch.from_numpy(spec).unsqueeze(0).unsqueeze(0).to(self.device)
+                with torch.no_grad():
+                    embeddings.append(self.model(t))
+            else:
+                # Take up to 5 random chunks or sliding window
+                # Sliding window with overlap
+                stride = chunk_len // 2
+                for start in range(0, len(y_full) - chunk_len, stride):
+                    chunk = y_full[start:start+chunk_len]
+                    spec = extract_mel_spectrogram(chunk, sr=sr)
+                    t = torch.from_numpy(spec).unsqueeze(0).unsqueeze(0).to(self.device)
+                    with torch.no_grad():
+                        embeddings.append(self.model(t))
+                
+                # If no chunks (perfectly equal??), take one
+                if not embeddings:
+                     y = y_full[:chunk_len]
+                     spec = extract_mel_spectrogram(y, sr=sr)
+                     t = torch.from_numpy(spec).unsqueeze(0).unsqueeze(0).to(self.device)
+                     with torch.no_grad():
+                        embeddings.append(self.model(t))
+
+            # Stack and Average
+            if len(embeddings) > 0:
+                emb_tensor = torch.cat(embeddings, dim=0)
+                # Average pooling
+                avg_emb = torch.mean(emb_tensor, dim=0)
+                # Re-normalize
+                return torch.nn.functional.normalize(avg_emb.unsqueeze(0), p=2, dim=1).squeeze(0)
+            return None
+
         except Exception as e:
             print(f"Error computing embedding for {audio_path}: {e}")
             return None
@@ -57,15 +89,13 @@ class SpeakerIdentifier:
     def enroll_speaker(self, name, audio_path):
         embedding = self.compute_embedding(audio_path)
         if embedding is not None:
-            # If speaker exists, average? Or overwrite? Let's overwrite or add to list. 
-            # Simple version: overwrite
             self.speakers[name] = embedding
             self.save_embeddings()
             print(f"Enrolled {name}.")
             return True
         return False
 
-    def identify(self, audio_path, threshold=0.8):
+    def identify(self, audio_path, threshold=0.85):
         embedding = self.compute_embedding(audio_path)
         if embedding is None:
             return None
@@ -73,9 +103,10 @@ class SpeakerIdentifier:
         best_score = -1.0
         best_speaker = None
         
+        # Calculate similarities
         for name, ref_emb in self.speakers.items():
-            # Cosine similarity
             score = torch.nn.functional.cosine_similarity(embedding.unsqueeze(0), ref_emb.unsqueeze(0)).item()
+            # Debug: print(f"Score against {name}: {score}")
             if score > best_score:
                 best_score = score
                 best_speaker = name
@@ -83,4 +114,4 @@ class SpeakerIdentifier:
         if best_score >= threshold:
             return {"speaker": best_speaker, "confidence": best_score}
         else:
-            return {"speaker": None, "confidence": best_score}
+            return {"speaker": "Unknown", "confidence": best_score}
