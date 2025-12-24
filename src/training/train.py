@@ -8,8 +8,10 @@ from tqdm import tqdm
 
 from src.audio.preprocessing import SpeakerDataset
 from src.model.speaker_encoder import SpeakerEncoder
+import warnings
 
 def train(data_path, model_path, epochs=10, batch_size=32, lr=0.001):
+    warnings.filterwarnings("ignore")
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
     

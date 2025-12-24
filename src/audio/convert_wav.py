@@ -28,6 +28,8 @@ def convert_file(filepath):
                 with AudioFileClip(filepath) as clip:
                     clip.write_audiofile(new_path, logger=None)
                 print(f"Saved {new_path}")
+                os.remove(filepath)
+                print(f"Deleted original file: {filepath}")
                 return True
             else:
                 # Fallback to librosa (will likely fail on Windows without ffmpeg)
@@ -38,6 +40,8 @@ def convert_file(filepath):
         new_path = os.path.splitext(filepath)[0] + '.wav'
         sf.write(new_path, y, sr)
         print(f"Saved {new_path}")
+        os.remove(filepath)
+        print(f"Deleted original file: {filepath}")
         return True
         
     except Exception as e:
