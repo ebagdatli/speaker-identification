@@ -10,5 +10,4 @@ soundfile
 streamlit
 audio-recorder-streamlit
 numpy
-audiomentations
 moviepy

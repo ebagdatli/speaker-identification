@@ -77,7 +77,7 @@ def train(data_path, model_path, epochs=20, batch_size=32, lr=0.0005, noise_path
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_path", type=str, required=True)
-    parser.add_argument("--model_path", type=str, default="models/speaker_encoder.pt")
+    parser.add_argument("--model_path", type=str, default="models/speaker_encoder_1.pt")
     parser.add_argument("--epochs", type=int, default=20)
     parser.add_argument("--noise_path", type=str, default=None, help="Path to background noise used for augmentation")
     parser.add_argument("--ir_path", type=str, default=None, help="Path to impulse responses")
