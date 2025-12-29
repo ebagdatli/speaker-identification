@@ -10,5 +10,13 @@ soundfile
 streamlit
 audio-recorder-streamlit
 numpy
-audiomentations
+# audiomentations  # Opsiyonel: Yüklemek için Visual C++ Build Tools gerekli
 moviepy
+
+# Database
+psycopg2-binary
+pgvector
+python-dotenv
+
+# VAD
+webrtcvad-wheels

@@ -3,15 +3,15 @@ import numpy as np
 import os
 import json
 import librosa
+from src.database.db_manager import DBManager
 from src.model.speaker_encoder import SpeakerEncoder
 from src.audio.preprocessing import extract_mel_spectrogram
 
 class SpeakerIdentifier:
-    def __init__(self, model_path="models/speaker_encoder.pt", embeddings_path="embeddings/speakers.json", device=None):
+    def __init__(self, model_path="models/speaker_encoder.pt", device=None):
         self.device = device if device else torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.model = SpeakerEncoder().to(self.device)
-        self.embeddings_path = embeddings_path
-        self.speakers = {}
+        self.db = DBManager()
         
         if os.path.exists(model_path):
             try:
@@ -21,27 +21,21 @@ class SpeakerIdentifier:
                 print(f"Error loading model: {e}")
         else:
             print(f"Warning: Model not found at {model_path}")
-            
-        self.load_embeddings()
-
-    def load_embeddings(self):
-        if os.path.exists(self.embeddings_path):
-            with open(self.embeddings_path, 'r') as f:
-                data = json.load(f)
-                self.speakers = {k: torch.tensor(v).to(self.device) for k, v in data.items()}
-
-    def save_embeddings(self):
-        data = {k: v.cpu().tolist() for k, v in self.speakers.items()}
-        # Create dir if not exists
-        os.makedirs(os.path.dirname(self.embeddings_path), exist_ok=True)
-        with open(self.embeddings_path, 'w') as f:
-            json.dump(data, f)
 
     def compute_embedding(self, audio_path, duration=1.0):
         try:
             # We can average multiple chunks for better robustness
             y_full, sr = librosa.load(audio_path, sr=8000)
             
+            # Apply VAD before embedding generation too?
+            # Yes, critical for inference accuracy
+            from src.audio.preprocessing import apply_vad
+            y_full = apply_vad(y_full, sr=sr)
+            
+            if len(y_full) == 0:
+                print("Audio is purely silence.")
+                return None
+
             # Create sliding windows of 1 sec
             chunk_len = int(duration * 8000)
             embeddings = []
@@ -89,10 +83,14 @@ class SpeakerIdentifier:
     def enroll_speaker(self, name, audio_path):
         embedding = self.compute_embedding(audio_path)
         if embedding is not None:
-            self.speakers[name] = embedding
-            self.save_embeddings()
-            print(f"Enrolled {name}.")
-            return True
+             # Convert tensor to list/numpy for DB
+            emb_list = embedding.cpu().tolist()
+            if self.db.add_speaker(name, emb_list):
+                print(f"Enrolled {name}.")
+                return True
+            else:
+                print(f"Failed to enroll {name}.")
+                return False
         return False
 
     def identify(self, audio_path, threshold=0.85):
@@ -100,18 +98,14 @@ class SpeakerIdentifier:
         if embedding is None:
             return None
         
-        best_score = -1.0
-        best_speaker = None
+        # Determine strictness dynamically?
+        # For now use fixed threshold.
+        # DB returns closest match.
         
-        # Calculate similarities
-        for name, ref_emb in self.speakers.items():
-            score = torch.nn.functional.cosine_similarity(embedding.unsqueeze(0), ref_emb.unsqueeze(0)).item()
-            # Debug: print(f"Score against {name}: {score}")
-            if score > best_score:
-                best_score = score
-                best_speaker = name
+        emb_list = embedding.cpu().tolist()
+        name, similarity = self.db.find_closest_speaker(emb_list)
         
-        if best_score >= threshold:
-            return {"speaker": best_speaker, "confidence": best_score}
+        if name and similarity >= threshold:
+            return {"speaker": name, "confidence": similarity}
         else:
-            return {"speaker": "Unknown", "confidence": best_score}
+            return {"speaker": "Unknown", "confidence": similarity}

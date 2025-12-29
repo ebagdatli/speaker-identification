@@ -15,6 +15,43 @@ except ImportError:
 
 # --- Augmentation Utils (Ported) ---
 
+# VAD Import
+try:
+    import webrtcvad
+except ImportError:
+    webrtcvad = None
+
+def apply_vad(audio, sr=8000, frame_duration_ms=30):
+    """
+    Applies Voice Activity Detection to trim silence.
+    Only works for 8000Hz, 16000Hz, 32000Hz, or 48000Hz.
+    """
+    if webrtcvad is None:
+        return audio
+        
+    if sr not in [8000, 16000, 32000, 48000]:
+        return audio # VAD doesn't support other rates
+
+    vad = webrtcvad.Vad(2) # Mode 2: Aggressive
+    
+    # Convert to 16-bit PCM for webrtcvad
+    audio_int16 = (audio * 32767).astype(np.int16)
+    
+    frame_len = int(sr * frame_duration_ms / 1000)
+    
+    # Generator for frames
+    frames = []
+    for i in range(0, len(audio_int16) - frame_len, frame_len):
+        frame = audio_int16[i:i+frame_len]
+        if vad.is_speech(frame.tobytes(), sr):
+            frames.append(audio[i:i+frame_len])
+            
+    if not frames:
+        return audio # If everything is silence, return original (or empty?)
+        
+    return np.concatenate(frames)
+
+
 def add_background_noise(y: np.ndarray, y_noise: np.ndarray, SNR: float) -> np.ndarray:
     if y.size < y_noise.size:
         y_noise = y_noise[:y.size]
@@ -103,13 +140,31 @@ def load_audio_chunk(path: str, duration: float = 1.0, sr: int = 8000):
         total_duration = librosa.get_duration(filename=path)
         if total_duration < duration:
             y, _ = librosa.load(path, sr=sr)
+            # Apply VAD
+            y = apply_vad(y, sr=sr)
+            
             target_len = int(duration * sr)
             if len(y) < target_len:
                 y = np.pad(y, (0, target_len - len(y)))
             y = y[:target_len]
         else:
+            # For training, random offset might land on silence. 
+            # Ideally we should load full file, VAD it, then chunk it.
+            # But that's slow. For now let's try to load a chunk, VAD it, if too short, pad?
+            # Better strategy: Load a bit more, VAD, then crop.
+            
             offset = random.uniform(0, total_duration - duration)
-            y, _ = librosa.load(path, sr=sr, offset=offset, duration=duration)
+            y, _ = librosa.load(path, sr=sr, offset=offset, duration=duration * 2) # Load double
+            y = apply_vad(y, sr=sr)
+            
+            target_len = int(duration * sr)
+            if len(y) >= target_len:
+                # Random crop from VADed audio
+                 start = random.randint(0, len(y) - target_len)
+                 y = y[start:start+target_len]
+            else:
+                 y = np.pad(y, (0, target_len - len(y)))
+                 
         return y
     except Exception as e:
         # print(f"Error loading {path}: {e}")
