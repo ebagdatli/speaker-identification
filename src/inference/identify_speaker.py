@@ -5,22 +5,29 @@ import json
 import librosa
 from src.model.speaker_encoder import SpeakerEncoder
 from src.audio.preprocessing import extract_mel_spectrogram
+from src.utils import config_loader as config
 
 class SpeakerIdentifier:
-    def __init__(self, model_path="models/speaker_encoder.pt", embeddings_path="embeddings/speakers.json", device=None):
+    def __init__(self, model_path=None, embeddings_path=None, device=None):
+        # Use config values as defaults
+        self.model_path = model_path or config.model_path()
+        self.embeddings_path = embeddings_path or config.embeddings_path()
+        self.sample_rate = config.sample_rate()
+        self.duration = config.duration()
+        self.threshold = config.threshold()
+        
         self.device = device if device else torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.model = SpeakerEncoder().to(self.device)
-        self.embeddings_path = embeddings_path
         self.speakers = {}
         
-        if os.path.exists(model_path):
+        if os.path.exists(self.model_path):
             try:
-                self.model.load_state_dict(torch.load(model_path, map_location=self.device))
+                self.model.load_state_dict(torch.load(self.model_path, map_location=self.device))
                 self.model.eval()
             except Exception as e:
                 print(f"Error loading model: {e}")
         else:
-            print(f"Warning: Model not found at {model_path}")
+            print(f"Warning: Model not found at {self.model_path}")
             
         self.load_embeddings()
 
@@ -37,13 +44,14 @@ class SpeakerIdentifier:
         with open(self.embeddings_path, 'w') as f:
             json.dump(data, f)
 
-    def compute_embedding(self, audio_path, duration=1.0):
+    def compute_embedding(self, audio_path, duration=None):
+        duration = duration or self.duration
         try:
             # We can average multiple chunks for better robustness
-            y_full, sr = librosa.load(audio_path, sr=8000)
+            y_full, sr = librosa.load(audio_path, sr=self.sample_rate)
             
-            # Create sliding windows of 1 sec
-            chunk_len = int(duration * 8000)
+            # Create sliding windows
+            chunk_len = int(duration * self.sample_rate)
             embeddings = []
             
             # If shorter than 1 sec, pad
@@ -95,7 +103,19 @@ class SpeakerIdentifier:
             return True
         return False
 
-    def identify(self, audio_path, threshold=0.85):
+    def remove_speaker(self, name):
+        if name in self.speakers:
+            del self.speakers[name]
+            self.save_embeddings()
+            return True
+        return False
+        
+    def refresh(self):
+        """Reloads embeddings from disk."""
+        self.load_embeddings()
+
+    def identify(self, audio_path, threshold=None):
+        threshold = threshold or self.threshold
         embedding = self.compute_embedding(audio_path)
         if embedding is None:
             return None

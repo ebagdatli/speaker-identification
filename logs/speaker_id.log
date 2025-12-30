@@ -1,0 +1,231 @@
+[2025-12-30 02:16:30] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 02:16:30] WARNING [speaker_id.streamlit.<module>:42] PyAudio not available. Microphone features disabled.
+[2025-12-30 02:16:51] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:17:40] WARNING [speaker_id.streamlit.<module>:42] PyAudio not available. Microphone features disabled.
+[2025-12-30 02:17:53] WARNING [speaker_id.streamlit.<module>:42] PyAudio not available. Microphone features disabled.
+[2025-12-30 02:25:54] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:26:18] INFO [speaker_id.streamlit.<module>:434] Speaker removed: TEST
+[2025-12-30 02:26:22] INFO [speaker_id.streamlit.<module>:434] Speaker removed: MEHMET DURMAZ
+[2025-12-30 02:26:25] INFO [speaker_id.streamlit.<module>:434] Speaker removed: 02
+[2025-12-30 02:26:27] INFO [speaker_id.streamlit.<module>:434] Speaker removed: 01
+[2025-12-30 02:26:52] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:27:14] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:28:01] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:28:34] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:28:57] INFO [speaker_id.streamlit.<module>:434] Speaker removed: EYUP BAGDATLI
+[2025-12-30 02:29:17] INFO [speaker_id.streamlit.<module>:391] Speaker enrolled: EYUP BAGDATLI
+[2025-12-30 02:29:34] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:29:40] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:29:49] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:29:56] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:30:00] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:32:53] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 02:33:01] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:33:15] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:34:04] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:34:18] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:34:24] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:34:31] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:35:20] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:35:31] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:37:23] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 02:37:23] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 02:37:57] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:37:57] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:55:08] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 02:55:29] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:55:35] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 02:55:35] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 02:55:42] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:55:42] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:56:31] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:56:31] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:56:41] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:56:41] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:56:50] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:56:50] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:57:09] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:57:09] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:57:11] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:57:11] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:57:18] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:57:18] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 02:58:13] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 02:58:22] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 02:58:40] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:00:01] INFO [speaker_id.streamlit.<module>:391] Speaker enrolled: ALPAY
+[2025-12-30 03:00:21] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:01:06] INFO [speaker_id.streamlit.<module>:391] Speaker enrolled: EYUP
+[2025-12-30 03:01:14] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:01:23] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:01:28] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:01:34] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:02:37] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:02:48] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:02:54] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:03:01] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:03:09] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:03:12] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:03:18] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:03:22] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:03:33] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:03:43] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:03:49] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:03:54] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:04:03] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:04:12] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:04:20] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:04:23] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:04:33] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:04:44] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:04:47] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:04:53] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:04:57] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:05:19] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:05:48] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:06:00] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:06:17] INFO [speaker_id.streamlit.<module>:391] Speaker enrolled: OKAN
+[2025-12-30 03:06:21] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:06:23] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:06:29] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:06:32] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:06:38] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:06:46] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:06:48] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:06:55] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:07:09] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:07:15] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:07:17] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:07:26] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:07:32] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:07:40] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:07:47] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:07:56] ERROR [speaker_id.streamlit.<module>:303] Stream error: 'speaker'
+[2025-12-30 03:08:00] INFO [speaker_id.streamlit.<module>:128] Model loaded successfully.
+[2025-12-30 03:09:49] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:09:57] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:10:12] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:10:23] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:10:35] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:10:43] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:10:53] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:11:58] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:12:01] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:12:12] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:12:18] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:12:36] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:12:43] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:12:54] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:17:58] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:17:58] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:17:59] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:17:59] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:18:09] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:18:09] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:18:15] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:18:15] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:18:24] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:18:24] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:18:40] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:18:40] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:18:50] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:18:50] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:19:20] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:19:20] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:19:30] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:19:30] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:25:56] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:25:56] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:25:56] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:25:57] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:25:57] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:25:57] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:26:36] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:26:36] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:26:36] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:26:49] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:26:49] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:26:49] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:26:49] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:26:57] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:26:57] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:26:57] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:26:57] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:27:13] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:27:13] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:27:13] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:27:13] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:27:19] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:27:19] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:27:19] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:27:19] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:27:19] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:27:48] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:27:48] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:27:48] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:27:48] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:27:48] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:28:05] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:28:05] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:28:05] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:28:05] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:28:05] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:29:28] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:29:28] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:29:28] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:29:28] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:29:28] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:30:18] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:30:18] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:30:18] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:30:18] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:30:18] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:30:18] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:30:18] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:30:18] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:30:18] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:30:18] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:30:18] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:30:18] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:31:10] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:31:10] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:31:10] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:31:10] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:31:19] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:31:19] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:31:19] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:31:19] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:39:05] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:39:13] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:45:15] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:45:25] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:46:06] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:48:55] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:48:55] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:49:50] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:49:50] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:50:17] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:50:17] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:50:21] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:50:21] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:50:30] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:50:30] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:50:36] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:50:36] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:50:50] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:50:50] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:51:09] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:51:09] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:51:27] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:51:27] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:51:35] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:51:35] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:51:45] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:51:45] ERROR [speaker_id.streamlit.<module>:310] Stream error: 'speaker'
+[2025-12-30 03:51:53] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:51:53] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:55:28] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:55:39] INFO [speaker_id.streamlit.<module>:129] Model loaded successfully.
+[2025-12-30 03:58:41] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:58:41] INFO [speaker_id.setup_logging:57] Logging initialized.
+[2025-12-30 03:58:41] INFO [speaker_id.setup_logging:57] Logging initialized.

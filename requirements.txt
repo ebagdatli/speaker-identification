@@ -11,3 +11,9 @@ streamlit
 audio-recorder-streamlit
 numpy
 moviepy
+audiomentations>=0.28.0
+# webrtcvad>=2.0.10  # Opsiyonel - C++ Build Tools gerektirir, Silero VAD yeterli
+pyaudio
+pyyaml
+umap-learn
+plotly
